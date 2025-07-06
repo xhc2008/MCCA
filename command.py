@@ -165,7 +165,7 @@ while True:
         })
         if input("接受此命令？[Y/N]").lower()!='y':
             continue
-        # 示例：查找并激活标题包含 "test" 的窗口
+        
         partial_title =  "Minecraft"  # 可替换为你的目标窗口名（部分匹配）
         target_hwnd = find_window_by_title_part(partial_title)
 
