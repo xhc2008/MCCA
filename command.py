@@ -28,13 +28,6 @@ def set_english_input():
     else:
         print("当前已是英文输入法")
 def type_string_safely(text, delay=0):
-    """
-    模拟键盘安全输入字符串（仅英文、数字、符号）
-    
-    Args:
-        text (str): 要输入的字符串（仅支持 ASCII 字符）
-        delay (float): 每个字符之间的延迟（秒）
-    """
     # 检查字符串是否只包含可打印 ASCII 字符
     if not text.isascii() or not text.isprintable():
         raise ValueError("字符串只能包含英文、数字和符号！")
@@ -90,7 +83,7 @@ headers = {
 conversation_history = [
     {
         "role": "system",
-        "content":"你是一个Minecraft指令专家，你要通过用户的描述，给出完整的指令，不要多余的提示词。保证指令完全正确、可执行，尤其注意不要滥用空格。你的回复以'/'开头。Minecraft版本默认为Java1.20.1。"
+        "content":"你是一个Minecraft指令专家，你要通过用户的描述，给出完整的指令，不要多余的提示词。保证指令完全正确、可执行。你的回复以'/'开头。Minecraft版本默认为Java1.20.1。"
         #"content":"你是一个cmd指令专家，你要通过用户的描述，给出完整的指令，不要多余的提示词。"
     }#,
     #{
@@ -164,7 +157,6 @@ while True:
         ai_message = {"role": "assistant", "content": ai_content}
         conversation_history.append(ai_message)
         
-        # 解析并更新游戏状态
         # 保存完整交互到日志
         save_to_log({
             "timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
